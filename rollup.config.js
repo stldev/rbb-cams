@@ -38,10 +38,9 @@ export default {
           require.resolve('@babel/preset-env'),
           {
             targets: [
-              'last 3 Chrome major versions',
-              'last 3 Firefox major versions',
-              'last 3 Edge major versions',
-              'last 3 Safari major versions',
+              'last 2 Chrome major versions',
+              'last 2 Edge major versions',
+              'last 2 Safari major versions',
             ],
             modules: false,
             bugfixes: true,
