@@ -7,6 +7,13 @@ jobs:
   build_and_preview:
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
+    env:
+      APPSERVER_PUBLICKEY: ${{secrets.APPSERVER_PUBLICKEY}}
+      URL_BIGIMG_LOCAL: ${{secrets.URL_BIGIMG_LOCAL}}
+      URL_BIGIMG_CLOUD: ${{secrets.URL_BIGIMG_CLOUD}}
+      URL_VARS_LOCAL: ${{secrets.URL_VARS_LOCAL}}
+      URL_VARS_CLOUD: ${{secrets.URL_VARS_CLOUD}}
+      TEST_RICK: ${{secrets.TEST_RICK}}
     steps:
       - uses: actions/checkout@v2
       - run: npm ci && npm run build
