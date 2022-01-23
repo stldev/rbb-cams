@@ -9,6 +9,13 @@ name: Deploy to Firebase Hosting on merge
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
+    env:
+      APPSERVER_PUBLICKEY: ${{secrets.APPSERVER_PUBLICKEY}}
+      URL_BIGIMG_LOCAL: ${{secrets.URL_BIGIMG_LOCAL}}
+      URL_BIGIMG_CLOUD: ${{secrets.URL_BIGIMG_CLOUD}}
+      URL_VARS_LOCAL: ${{secrets.URL_VARS_LOCAL}}
+      URL_VARS_CLOUD: ${{secrets.URL_VARS_CLOUD}}
+      TEST_RICK: ${{secrets.TEST_RICK}}
     steps:
       - uses: actions/checkout@v2
       - run: npm ci && npm run build
