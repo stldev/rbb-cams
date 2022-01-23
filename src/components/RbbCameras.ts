@@ -63,7 +63,7 @@ export class RbbCameras extends LitElement {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Code examples
+          Code examples => ${process.env.TEST_RICK}
         </a>
       </main>
 

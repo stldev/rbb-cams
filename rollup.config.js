@@ -6,6 +6,10 @@ import { terser } from 'rollup-plugin-terser';
 import { generateSW } from 'rollup-plugin-workbox';
 import copy from 'rollup-plugin-copy';
 import path from 'path';
+import replace from '@rollup/plugin-replace';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 export default {
   input: 'index.html',
@@ -19,10 +23,27 @@ export default {
   preserveEntrySignatures: false,
 
   plugins: [
+    replace({
+      'process.env.APPSERVER_PUBLICKEY': JSON.stringify(
+        `${process.env.APPSERVER_PUBLICKEY}`
+      ),
+      'process.env.URL_BIGIMG_LOCAL': JSON.stringify(
+        `${process.env.URL_BIGIMG_LOCAL}`
+      ),
+      'process.env.URL_BIGIMG_CLOUD': JSON.stringify(
+        `${process.env.URL_BIGIMG_CLOUD}`
+      ),
+      'process.env.URL_VARS_LOCAL': JSON.stringify(
+        `${process.env.URL_VARS_LOCAL}`
+      ),
+      'process.env.URL_VARS_CLOUD': JSON.stringify(
+        `${process.env.URL_VARS_CLOUD}`
+      ),
+      'process.env.TEST_RICK': JSON.stringify(`${process.env.TEST_RICK}`),
+    }),
     copy({
       targets: [
-        { src: 'manifest.webmanifest', dest: './public' },
-        { src: 'assets/*.png', dest: './public' },
+        { src: 'assets/*.*', dest: './public' },
         // { src: '*.svg', dest: './public' },
         // { src: '*.ico', dest: './public' },
       ],
