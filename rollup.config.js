@@ -45,6 +45,7 @@ export default {
     copy({
       targets: [
         { src: 'assets/*.*', dest: './public' },
+        { src: 'apple-icon.png', dest: './public' },
         // { src: '*.svg', dest: './public' },
         // { src: '*.ico', dest: './public' },
       ],

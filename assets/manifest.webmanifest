@@ -1,14 +1,15 @@
 {
   "name": "rbb-cams",
   "short_name": "rbbcams",
-  "theme_color": "#3B4438",
   "icons": [
     {
-      "src": "icon2.png",
-      "sizes": "512x512"
+      "src": "apple-icon.png",
+      "sizes": "192x192"
     }
   ],
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ccc"
+  "orientation": "portrait",
+  "background_color": "#ccc",
+  "theme_color": "#3B4438"
 }
