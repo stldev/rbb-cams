@@ -7,9 +7,10 @@ import { generateSW } from 'rollup-plugin-workbox';
 import copy from 'rollup-plugin-copy';
 import path from 'path';
 import replace from '@rollup/plugin-replace';
-import dotenv from 'dotenv';
+import 'dotenv/config';
+// import dotenv from 'dotenv/config';
 
-dotenv.config();
+// dotenv.config();
 
 export default {
   input: 'index.html',

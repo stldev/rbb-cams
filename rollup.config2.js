@@ -1,8 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import replace from '@rollup/plugin-replace';
-import dotenv from 'dotenv';
+// import dotenv from 'dotenv/config';
+import 'dotenv/config';
 
-dotenv.config();
+// dotenv.config();
 
 export default {
   input: './rbb-sw.js',
