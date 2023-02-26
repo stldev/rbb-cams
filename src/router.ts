@@ -1,5 +1,6 @@
 import { Route, Router } from '@vaadin/router';
 import './app';
+import './components/CamerasHeader';
 
 const routes: Route[] = [
   {
@@ -7,10 +8,31 @@ const routes: Route[] = [
     component: 'rbb-app',
     children: [
       {
-        path: 'home',
-        component: 'rbb-cameras',
+        path: 'grid',
+        component: 'cameras-grid',
         action: async () => {
-          await import('./components/RbbCameras');
+          await import('./components/CamerasGrid');
+        },
+      },
+      {
+        path: 'secret',
+        component: 'rbb-secret',
+        action: async () => {
+          await import('./components/Secret');
+        },
+      },
+      {
+        path: 'links',
+        component: 'rbb-links',
+        action: async () => {
+          await import('./components/Links');
+        },
+      },
+      {
+        path: 'notifications',
+        component: 'rbb-notifications',
+        action: async () => {
+          await import('./components/Notifications');
         },
       },
     ],

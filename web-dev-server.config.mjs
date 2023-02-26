@@ -1,12 +1,11 @@
-// import { hmrPlugin, presets } from '@open-wc/dev-server-hmr';
 import 'dotenv/config';
-// import dotenv from 'dotenv/config';
 import rollupReplace from '@rollup/plugin-replace';
 import { fromRollup } from '@web/dev-server-rollup';
 
 const replace = fromRollup(rollupReplace);
 
-// dotenv.config();
+// import { hmrPlugin, presets } from '@open-wc/dev-server-hmr';
+
 /** Use Hot Module replacement by adding --hmr to the start command */
 const hmr = process.argv.includes('--hmr');
 
@@ -43,7 +42,6 @@ export default /** @type {import('@web/dev-server').DevServerConfig} */ ({
       'process.env.URL_VARS_CLOUD': JSON.stringify(
         `${process.env.URL_VARS_CLOUD}`
       ),
-      'process.env.TEST_RICK': JSON.stringify(`${process.env.TEST_RICK}`),
     }),
   ],
 

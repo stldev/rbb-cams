@@ -1,10 +1,12 @@
 import { Router } from '@vaadin/router';
 import { LitElement, html, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
+import { mvpCss } from '../styles-3rdParty';
 
 @customElement('not-found')
 export class NotFound extends LitElement {
   static styles = [
+    mvpCss,
     css`
       article {
         text-align: center;

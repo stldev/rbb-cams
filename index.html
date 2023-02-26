@@ -1,45 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <style>
-      link[rel='manifest'] {
-        --pwacompat-splash-font: bold 24px Cursive;
-      }
-    </style>
     <meta charset="utf-8" />
-    <!-- <meta
+    <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-    /> -->
-    <meta name="viewport" content="width=device-width, user-scalable=no" />
-    <meta name="Description" content="Put your description here." />
+    />
+    <meta name="Description" content="RbbCameras in Missouri." />
+    <meta name="theme-color" content="#344675" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#344675" />
+    <meta name="apple-mobile-web-app-title" content="RbbCameras" />
+
     <base href="/" />
 
-    <style>
-      html,
+    <style media="screen">
       body {
+        background: #eceff1;
+        color: rgba(0, 0, 0, 0.87);
+        font-family: Roboto, Helvetica, Arial, sans-serif;
         margin: 0;
         padding: 0;
-        font-family: sans-serif;
-        background-color: #ededed;
+      }
+      @media (max-width: 600px) {
+        body {
+          margin-top: 0;
+          box-shadow: none;
+          border-top: 16px solid #ffa100;
+        }
       }
     </style>
-    <title>rbb-cams</title>
+
+    <title>RbbCameras</title>
+
+    <link rel="shortcut icon" href="favicon.ico" />
+    <!-- <link rel="icon" href="favicon.svg" /> -->
     <!-- MANIFEST -->
-
-    <meta name="theme-color" content="#0096FF" />
-    <link rel="shortcut icon" type="image/png" href="apple-icon.png" />
-
-    <script
-      async
-      src="https://unpkg.com/pwacompat"
-      crossorigin="anonymous"
-    ></script>
   </head>
 
   <body>
     <div id="outlet"></div>
-
     <script type="module" src="./out-tsc/src/index.js"></script>
   </body>
 </html>

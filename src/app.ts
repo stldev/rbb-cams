@@ -5,11 +5,14 @@ import { customElement } from 'lit/decorators.js';
 @customElement('rbb-app')
 export class RbbApp extends LitElement {
   firstUpdated() {
-    if (globalThis.location.pathname === '/')
-      setTimeout(() => Router.go('/home'), 25);
+    if (window.location.pathname === '/')
+      setTimeout(() => Router.go('/grid'), 25);
   }
 
   render() {
-    return html` <slot></slot> `;
+    return html`
+      <cameras-header></cameras-header>
+      <slot></slot>
+    `;
   }
 }

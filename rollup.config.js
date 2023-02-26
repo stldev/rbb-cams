@@ -8,9 +8,6 @@ import copy from 'rollup-plugin-copy';
 import path from 'path';
 import replace from '@rollup/plugin-replace';
 import 'dotenv/config';
-// import dotenv from 'dotenv/config';
-
-// dotenv.config();
 
 export default {
   input: 'index.html',
@@ -40,14 +37,14 @@ export default {
       'process.env.URL_VARS_CLOUD': JSON.stringify(
         `${process.env.URL_VARS_CLOUD}`
       ),
-      'process.env.TEST_RICK': JSON.stringify(`${process.env.TEST_RICK}`),
     }),
     copy({
       targets: [
-        { src: 'assets/*.*', dest: './public' },
-        { src: 'apple-icon.png', dest: './public' },
-        // { src: '*.svg', dest: './public' },
-        // { src: '*.ico', dest: './public' },
+        { src: 'rbb-sw.js', dest: './public' },
+        { src: 'manifest.webmanifest', dest: './public' },
+        { src: 'assets/*.png', dest: './public' },
+        { src: '*.svg', dest: './public' },
+        { src: '*.ico', dest: './public' },
       ],
     }),
     /** Enable using HTML as rollup entrypoint */
@@ -56,7 +53,8 @@ export default {
         html2 =>
           html2.replace(
             '<!-- MANIFEST -->',
-            `<link rel="manifest" href="./manifest.webmanifest" />`
+            `<link rel="apple-touch-icon" href="apple-touch-icon2.png" />
+            <link rel="manifest" href="./manifest.webmanifest" />`
           ),
       ],
       minify: true,
@@ -76,11 +74,7 @@ export default {
         [
           require.resolve('@babel/preset-env'),
           {
-            targets: [
-              'last 2 Chrome major versions',
-              'last 2 Edge major versions',
-              'last 2 Safari major versions',
-            ],
+            targets: ['last 3 Chrome major versions'],
             modules: false,
             bugfixes: true,
           },
@@ -114,7 +108,8 @@ export default {
       globDirectory: path.join('public'),
       // cache any html js and css by default
       globPatterns: ['**/*.{html,js,css,webmanifest}'],
-      skipWaiting: true,
+      skipWaiting: false,
+      importScripts: ['./rbb-sw.js'],
       clientsClaim: true,
       runtimeCaching: [{ urlPattern: 'polyfills/*.js', handler: 'CacheFirst' }],
     }),
